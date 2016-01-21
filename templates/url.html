@@ -1,0 +1,10 @@
+﻿{% extends "base.html" %}
+{% block title %}View link - {{ block.super }}{% endblock %}
+{% block content %}
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<h1>http://{{ request.META.HTTP_HOST }}{% url 'urlpage' show='' hash=url.hash%}</h1>
+<h3><a href="{{ url.url }}" target="_blank">{{ url.url }}</a></h3>
+<p><em>Submitted by <strong>{{ url.owner.first_name}} {{ url.owner.last_name}}</strong></em></p>
+<p><a href="{% url 'homepage' %}">Add another link</a></p>
+{% endblock %}

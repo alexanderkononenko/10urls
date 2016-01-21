@@ -1,0 +1,11 @@
+﻿{% extends "base.html" %}
+{% block title %}Add link - {{ block.super }}{% endblock %}
+{% block content %}
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'homepage' %}" method="post">
+{% csrf_token %}
+    <input type="text" name="url" placeholder="Type or paste URL here" />
+    <input type="submit" value="Shrink it!" />
+</form>
+{% endblock %}
